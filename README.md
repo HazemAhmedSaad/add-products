@@ -1,4 +1,5 @@
 lap
+
 component{
 home
 navbar
