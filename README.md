@@ -1,4 +1,4 @@
-lap 15
+lap
 component{
 home
 navbar
