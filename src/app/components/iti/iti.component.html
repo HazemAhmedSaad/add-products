@@ -1,0 +1,80 @@
+<div class="container">
+  <div>
+    <select class="form-select form-select-lg my-3" [(ngModel)]="track" aria-label="Default select example">
+      <option selected disabled>Select Your Track</option>
+      <option value="1">DotNet</option>
+      <option value="2">MEARN</option>
+      <option value="3">Testing</option>
+      <option value="4">Data Science</option>
+    </select>
+
+    <div [ngSwitch]="track" class="card-text">
+      <div *ngSwitchCase="'1'">
+        <p>
+          dotnet avilable at:
+        </p>
+        <p>benha</p>
+        <p>menfya</p>
+      </div>
+
+      <div *ngSwitchCase="'2'">
+        <p>mearn avilable at:</p>
+        <p>smart</p>
+        <p>minia</p>
+      </div>
+      <div *ngSwitchCase="'3'">
+        <p>
+          testing aviblable at:
+        </p>
+        <p>Mansoura</p>
+        <p>Assuite</p>
+
+      </div>
+      <div *ngSwitchCase="'4'">
+        <p> Data Science don't open this quartar</p>
+      </div>
+      <div *ngSwitchDefault>Select a track to view details</div>
+    </div>
+  </div>
+  <div>
+    <form class="form-group my-5">
+      <!-- Name Input -->
+      <input class="form-control my-3" type="text" name="name" placeholder="Enter your name"
+        [(ngModel)]="name" #nameField="ngModel" required />
+      <p *ngIf="nameField.invalid && nameField.touched" class="text-danger">Name is required</p>
+
+      <!-- Age Input -->
+      <input class="form-control my-3" type="number" min="0" name="age" placeholder="Enter age" [(ngModel)]="age"
+        #ageField="ngModel" required />
+      <p *ngIf="ageField.invalid && ageField.touched" class="text-danger">Age is required</p>
+      <p *ngIf="age < 18 && ageField.touched && ageField.valid" class="text-danger">Age must be more than 18</p>
+
+      <!-- Add Button -->
+      <button class="btn btn-success" [disabled]="nameField.invalid || ageField.invalid || age < 18"
+        (click)="addUser(nameField, ageField)">
+        Add
+      </button>
+    </form>
+
+
+    <table class="table" *ngIf="user.length > 0">
+      <thead>
+        <tr>
+          <th scope=" col">#</th>
+          <th scope="col">name</th>
+          <th scope="col">age</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ele of user; let i = index">
+          <td>{{ i }}</td>
+          <td>{{ ele.name }}</td>
+          <td [ngStyle]="{ color: 'green' }">{{ ele.age }}</td>
+
+          <td><button class="btn btn-danger" (click)="deleteUser(i)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

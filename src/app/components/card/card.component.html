@@ -1,0 +1,14 @@
+<div class="row row-cols-1 juscy-content-around align-items-center my-5 row-cols-md-3 g-5 ">
+  <div class="col" *ngFor="let item of parentData ">
+    <div class="card">
+      <img [src]="item.image" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{item.title}}</h5>
+        <p class="card-text">{{item.quantity}}</p>
+      </div>
+      <button class="btn btn-primary" *ngIf="item.quantity>1">Add To Cart</button>
+      <h4 class="card-text text-success text-center mb-3" *ngIf="item.quantity==1">only pece avilable</h4>
+      <h4 class="card-text text-danger text-center mb-3" *ngIf="item.quantity==0">sold out</h4>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+  <!-- <div class="row row-cols-1 juscy-content-around align-items-center row-cols-md-3 g-5 ">
+    <div class="col" *ngFor="let item of products">
+      <div class="card">
+        <img [src]="item.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-text">{{item.quantity}}</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <app-card [parentData]="products"></app-card>
+</div>
